@@ -1,8 +1,8 @@
 import { RouteObject } from 'react-router-dom';
-import { RouletteGameePage, MainPage } from '@pages';
+import { RouletteGameePage, MainPage, NotFoundErrorPage } from '@pages';
 import { Layout } from '@layouts';
 
-const { Default } = Layout;
+const { Default, Full } = Layout;
 
 export const publicRouter: RouteObject[] = [
   {
@@ -13,4 +13,12 @@ export const publicRouter: RouteObject[] = [
       </Default>
     ),
   },
+  {
+   path: "*",
+   element: (
+    <Full>
+    <NotFoundErrorPage/>
+</Full>
+   )
+  }
 ];
