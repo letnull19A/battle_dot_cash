@@ -32,7 +32,9 @@
       "@hooks": ["src/shared/hooks"],
       "@api": ["src/shared/api"],
       "@layouts": ["src/app/layouts"],
-      "@routes": ["src/app/routes"]
+      "@routes": ["src/app/routes"],
+      "@redux/store": ["src/app/redux/stores"],
+      "@contexts": ["src/app/contexts"]
     },
   },
   "include": ["src"]

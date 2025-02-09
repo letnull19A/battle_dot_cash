@@ -1,14 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container } from '@ui';
 import styles from './style.module.scss';
+import {MenuContext} from "@contexts/menuContext"
 
-type TBurgerMenuPros = {
-  isOpen: boolean;
-};
-
-export const BurgerMenu = (props: TBurgerMenuProps) => {
-  const { isOpen } = props;
+export const BurgerMenu = () => {
+  const menuContext = useContext(MenuContext)
 
   const data: Array<{ text: string; path: string }> = [
     { text: 'Главная', path: '/' },
@@ -21,8 +18,8 @@ export const BurgerMenu = (props: TBurgerMenuProps) => {
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
   useEffect(() => {
-    console.log(isOpen);
-    if (!isOpen && isDisabled) {
+    console.log(menuContext.isOpen);
+    if (!menuContext.isOpen && isDisabled) {
       var timeout = setTimeout(() => {
         setIsDisabled(true);
       }, 2000);
@@ -30,7 +27,7 @@ export const BurgerMenu = (props: TBurgerMenuProps) => {
       if (timeout !== undefined) clearTimeout(timeout);
       setIsDisabled(false);
     }
-  }, [isOpen, isDisabled]);
+  }, [menuContext.isOpen, isDisabled]);
 
   useEffect(() => {
     console.log(isDisabled);
@@ -41,7 +38,7 @@ export const BurgerMenu = (props: TBurgerMenuProps) => {
       className={[
         styles.burgerMenu,
         isDisabled ? styles.disabled : styles.enabled,
-        isOpen ? styles.show : styles.hidden,
+        menuContext.isOpen ? styles.show : styles.hidden,
       ].join(' ')}
     >
       <Container>
@@ -65,9 +62,14 @@ const BurgerMenuItem = (props: TBurgerMenuItemProps) => {
   const { text, path, style } = props;
   const navigate = useNavigate();
 
+  const menuContext = useContext(MenuContext)
+
   return (
     <li className={styles.burgerMenuItem} style={style}>
-      <span onClick={() => navigate(path)}>{text}</span>
+      <span onClick={() => {
+navigate(path)
+menuContext.setIsOpen(false)
+}}>{text}</span>
     </li>
   );
 };

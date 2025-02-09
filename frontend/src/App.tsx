@@ -4,6 +4,8 @@ import { Wheel } from 'react-custom-roulette';
 import { Header } from '@ui';
 import { Layout } from '@layouts';
 import { RouterApp } from '@routes';
+import {app} from "@redux/store"
+import {Provider} from "react-redux"
 
 const data = [
   { option: '0', style: { backgroundColor: '#26854c' } },
@@ -136,9 +138,9 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <Provider store={app}>
       <RouterApp />
-    </>
+    </Provider>
   );
 }
 
