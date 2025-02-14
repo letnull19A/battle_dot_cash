@@ -32,6 +32,7 @@ jobs:
           -f docker-compose.prod.yml \
           -p prod \
           up -d --build"
+
   clean_up:
     steps:
         needs: run_pull
