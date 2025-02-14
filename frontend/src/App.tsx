@@ -6,6 +6,7 @@ import { Layout } from '@layouts';
 import { RouterApp } from '@routes';
 import {app} from "@redux/store"
 import {Provider} from "react-redux"
+import 'primereact/resources/primereact.min.css';
 
 const data = [
   { option: '0', style: { backgroundColor: '#26854c' } },

@@ -1,5 +1,10 @@
 import { RouteObject } from 'react-router-dom';
-import { RouletteGameePage, MainPage, NotFoundErrorPage } from '@pages';
+import {
+  Account,
+  RouletteGameePage,
+  MainPage,
+  NotFoundErrorPage,
+} from '@pages';
 import { Layout } from '@layouts';
 
 const { Default, Full } = Layout;
@@ -14,11 +19,19 @@ export const publicRouter: RouteObject[] = [
     ),
   },
   {
-   path: "*",
-   element: (
-    <Full>
-    <NotFoundErrorPage/>
-</Full>
-   )
-  }
+    path: '/account',
+    element: (
+      <Default>
+        <Account />
+      </Default>
+    ),
+  },
+  {
+    path: '*',
+    element: (
+      <Full>
+        <NotFoundErrorPage />
+      </Full>
+    ),
+  },
 ];
