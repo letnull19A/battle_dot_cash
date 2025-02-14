@@ -18,16 +18,22 @@ jobs:
       - name: connect and pull
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-          "cd ${{ secrets.WORK_DIR }} && \
+           "cd ${{ secrets.WORK_DIR }} && \
            git checkout ${{ secrets.MAIN_BRANCH }} && \
-           git pull && \
-           sudo docker compose -f docker-compose.prod.yml -p prod up -d --build"
-      - name: cleanup
-        run: rm -rf ~/.ssh
+           git pull"
+
   build_containers:
-    needs: run_pull
-    name: building docker images
+    steps:
+        needs: run_pull
+      - name: building docker images
+        run: |
+          "cd docker \
+          && sudo docker compose \
+          -f docker-compose.prod.yml \
+          -p prod \
+          up -d --build"
   clean_up:
-    needs: run_pull
-    name: clean up
-    run: rm -rf ~/.ssh
+    steps:
+        needs: run_pull
+      - name: clean up
+        run: rm -rf ~/.ssh
