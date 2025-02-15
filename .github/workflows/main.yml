@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: building docker images
         run: |
-          cd {{ secrets.WORK_DIR }}/docker \
+          cd ${{ secrets.WORK_DIR }}/docker \
           && sudo docker compose \
           -f docker-compose.prod.yml \
           -p prod \
