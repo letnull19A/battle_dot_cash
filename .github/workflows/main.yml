@@ -17,24 +17,26 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
       - name: connect and pull
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-           "cd ${{ secrets.WORK_DIR }} && \
-           git checkout ${{ secrets.MAIN_BRANCH }} && \
-           git pull"
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+          "cd ${{ secrets.WORK_DIR }} && \
+          git checkout ${{ secrets.MAIN_BRANCH }} && \
+          git pull"
 
   build_containers:
+    needs: run_pull
+    runs-on: ubuntu-latest
     steps:
-        needs: run_pull
       - name: building docker images
         run: |
-          "cd docker \
+          cd docker \
           && sudo docker compose \
           -f docker-compose.prod.yml \
           -p prod \
-          up -d --build"
+          up -d --build
 
   clean_up:
+    needs: run_pull
+    runs-on: ubuntu-latest
     steps:
-        needs: run_pull
       - name: clean up
         run: rm -rf ~/.ssh
