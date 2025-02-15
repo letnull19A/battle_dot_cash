@@ -29,7 +29,7 @@ jobs:
       - name: building docker images
         run: |
           echo "current dir: $(pwd)" \
-          && cd ${{PWD}}/../docker \
+          && cd ${PWD}/../docker \
           && sudo docker compose \
           -f docker-compose.prod.yml \
           -p prod \
