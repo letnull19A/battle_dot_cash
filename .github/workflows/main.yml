@@ -36,7 +36,7 @@ jobs:
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
           "cd ${{ secrets.WORK_DIR }} && \
            sudo docker compose \
-          -f docker-compose.prod.yml \
+          -f ./docker-compose.prod.yml \
           -p prod \
           up -d --build"
 
