@@ -28,7 +28,8 @@ jobs:
     steps:
       - name: building docker images
         run: |
-          echo "current path: $(pwd)"
+          echo "current path: $(pwd)" \
+          && ls \
           && cd ../docker \
           && echo "new path $(pwd)" \
           && sudo docker compose \
