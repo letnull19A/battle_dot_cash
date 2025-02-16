@@ -4,11 +4,10 @@ services:
   gateway:
     build: ./gateway
     ports:
-      - '9088:9088'
+      - '80:80'
     restart: always
     volumes:
       - './gateway/nginx/nginx.conf:/etc/nginx/nginx.conf:ro'
-      - '/mnt/tour-app-uploads:/mnt/Uploads'
     depends_on:
       # - pgadmin
       - frontend
@@ -24,7 +23,6 @@ services:
     restart: unless-stopped
     volumes:
       - postgres-data:/var/lib/postgresql/data/
-      - './postgres/dataset:/docker-entrypoint-initdb.d'
     environment:
       - POSTGRES_DB=voyage-db
       - POSTGRES_USER=postgres
@@ -54,24 +52,19 @@ services:
 
   backend:
     build:
-      context: ./TouristCompany
+      context: ./backend
       dockerfile: Dockerfile.prod
     restart: unless-stopped
     ports:
       - 4590:4590
     depends_on:
       - postgres
-    volumes:
-      - './TouristCompany/TouristCompany/appsettings.json:/app/appsettings.json:ro'
-      - '/mnt/tour-app-uploads:/app/Uploads'
-    environment:
-      ASPNETCORE_URLS: http://+:4590
     networks:
       network:
         ipv4_address: 22.98.1.57
 
   frontend:
-    build: ./TouristCompanyReactApp
+    build: ./frontend
     ports:
       - '8014:5523'
     restart: always
@@ -80,18 +73,10 @@ services:
     depends_on:
       - backend
     volumes:
-      - './TouristCompanyReactApp/nginx/nginx.conf:/etc/nginx/nginx.conf:ro'
+      - './frontend/nginx/nginx.conf:/etc/nginx/nginx.conf:ro'
     networks:
       network:
         ipv4_address: 22.98.1.64
-
-  tickets:
-    build: ./TouristCompanyAviaTickets
-    ports:
-      - '7865:7865'
-    networks:
-      network:
-        ipv4_address: 22.98.1.99
 
 volumes:
   postgres-data:
