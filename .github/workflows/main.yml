@@ -28,11 +28,7 @@ jobs:
     steps:
       - name: building docker images
         run: |
-          echo "current path: $(pwd)" \
-          && if [ -d "docker" ] then echo "docker exist" \
-          && cd docker \
-          && echo "new path $(pwd)" \
-          && sudo docker compose \
+          sudo docker compose \
           -f docker-compose.prod.yml \
           -p prod \
           up -d --build
