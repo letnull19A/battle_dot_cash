@@ -28,10 +28,11 @@ jobs:
     steps:
       - name: building docker images
         run: |
-          sudo docker compose \
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+          "sudo docker compose \
           -f docker-compose.prod.yml \
           -p prod \
-          up -d --build
+          up -d --build"
 
   clean_up:
     needs: build_containers
