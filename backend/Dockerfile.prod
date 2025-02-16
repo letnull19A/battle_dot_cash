@@ -7,7 +7,7 @@ WORKDIR /app/backend
 COPY package.json .
 
 RUN npm i -g pnpm typescript \
-    && pnpm install
+    && pnpm install \
     && pnpm run build
 
 EXPOSE 8556
