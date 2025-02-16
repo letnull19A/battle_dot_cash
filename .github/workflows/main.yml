@@ -30,7 +30,7 @@ jobs:
         run: |
           echo "current path: $(pwd)" \
           && ls \
-          && cd ../docker \
+          && cd docker \
           && echo "new path $(pwd)" \
           && sudo docker compose \
           -f docker-compose.prod.yml \
@@ -38,7 +38,7 @@ jobs:
           up -d --build
 
   clean_up:
-    needs: run_pull
+    needs: build_containers
     runs-on: ubuntu-latest
     steps:
       - name: clean up
