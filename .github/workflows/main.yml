@@ -30,7 +30,7 @@ jobs:
         run: |
           echo "current path: $(pwd)"
           && cd ../docker \
-          echo "new path $(pwd)"
+          && echo "new path $(pwd)" \
           && sudo docker compose \
           -f docker-compose.prod.yml \
           -p prod \
