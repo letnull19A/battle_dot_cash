@@ -34,6 +34,15 @@ jobs:
           -p prod \
           up -d --build
 
+  clear_old_versions:
+    needs: build_containers
+    runs-on: ubuntu-latest
+    steps: 
+      - name: prune all
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+          "sudo docker system prune -a"
+
   clean_up:
     needs: run_pull
     runs-on: ubuntu-latest
