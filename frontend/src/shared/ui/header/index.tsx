@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { BurgerMenu } from './BurgerMenu';
 import { Button } from 'primereact/button';
 import { Container } from '@ui';
-import {MenuContext} from "@contexts/menuContext"
+import {MenuContext} from "@contexts"
 import styles from './style.module.scss';
 
 export const Header = () => {
@@ -25,7 +25,7 @@ export const Header = () => {
           </div>
         </Container>
       </header>
-      {<BurgerMenu isOpen={isMenuOpen} />}
+      {<BurgerMenu />}
     </MenuContext.Provider>
   );
 };

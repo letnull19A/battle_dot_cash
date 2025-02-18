@@ -10,10 +10,10 @@ const appSlice = createSlice({
   name: 'app',
   initialState: [],
   reducers: {
-    login(state, action) {
+    login(_state, _action) {
       
     },
-    logout(state, action) {
+    logout(_state, _action) {
       
     },
   },
