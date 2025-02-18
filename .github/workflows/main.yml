@@ -54,7 +54,7 @@ jobs:
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
           "sudo docker system prune -a"
   clean_up:
-    needs: clear_old_containers
+    needs: clear_old_versions
     runs-on: ubuntu-latest
     steps:
       - name: clean up
