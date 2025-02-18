@@ -1,8 +1,8 @@
-import { Element } from 'react';
+import { JSX } from 'react';
 import style from './style.module.scss';
 
 type TContainerProps = {
-  children?: Element;
+  children?: JSX.Element;
 };
 
 export const Container = (props: TContainerProps) => {

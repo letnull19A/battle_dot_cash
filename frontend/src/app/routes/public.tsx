@@ -1,7 +1,6 @@
 import { RouteObject } from 'react-router-dom';
 import {
   Account,
-  RouletteGameePage,
   MainPage,
   NotFoundErrorPage,
 } from '@pages';

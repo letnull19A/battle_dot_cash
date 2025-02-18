@@ -29,13 +29,12 @@ export const Account = () => {
     </div>
   );
 
-const buttonStyle = {
+const buttonStyle: React.CSSProperties = {
               position: 'static',
               zIndex: 0,
               width: '100%',
               backgroundColor: 'var(--indigo-700)',
-              borderColor: 'var(--indigo-700)',
-            
+              borderColor: 'var(--indigo-700)'            
 }
 
   return (
