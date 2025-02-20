@@ -1,12 +1,12 @@
-import { Header, Container } from '@ui';
-import styles from './style.module.scss';
+import { Header, Container } from '@ui'
+import styles from './style.module.scss'
 
 type TDefaultProps = {
-  children: JSX.Element;
-};
+  children: JSX.Element
+}
 
 export const Default = (props: TDefaultProps) => {
-  const { children } = props;
+  const { children } = props
 
   return (
     <div className={styles.defaultLayout}>
@@ -15,5 +15,5 @@ export const Default = (props: TDefaultProps) => {
         <Container>{children}</Container>
       </div>
     </div>
-  );
-};
+  )
+}

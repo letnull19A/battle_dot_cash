@@ -1,41 +1,41 @@
-import { useState } from 'react';
-import { ConfirmDialog } from 'primereact/confirmdialog';
-import { Avatar } from 'primereact/avatar';
-import { Button } from 'primereact/button';
-import styles from './style.module.scss';
+import { useState } from 'react'
+import { ConfirmDialog } from 'primereact/confirmdialog'
+import { Avatar } from 'primereact/avatar'
+import { Button } from 'primereact/button'
+import styles from './style.module.scss'
 
 export const Account = () => {
-  const [visible, setVisible] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(false)
   const [isEdit, setIsEdit] = useState<boolean>(false)
 
   const footerContent = (
     <div>
       <Button
         style={{ padding: 10, marginRight: 10 }}
-        label="Отмена"
-        icon="pi pi-times"
+        label='Отмена'
+        icon='pi pi-times'
         onClick={() => setVisible(false)}
         autoFocus
-        className="p-button-text"
+        className='p-button-text'
       />
       <Button
-        severity="danger"
+        severity='danger'
         outlined
         style={{ padding: 10 }}
-        label="Удалить"
-        icon="pi pi-check"
+        label='Удалить'
+        icon='pi pi-check'
         onClick={() => setVisible(false)}
       />
     </div>
-  );
+  )
 
-const buttonStyle: React.CSSProperties = {
-              position: 'static',
-              zIndex: 0,
-              width: '100%',
-              backgroundColor: 'var(--indigo-700)',
-              borderColor: 'var(--indigo-700)'            
-}
+  const buttonStyle: React.CSSProperties = {
+    position: 'static',
+    zIndex: 0,
+    width: '100%',
+    backgroundColor: 'var(--indigo-700)',
+    borderColor: 'var(--indigo-700)',
+  }
 
   return (
     <>
@@ -62,39 +62,43 @@ const buttonStyle: React.CSSProperties = {
           </div>
         </div>
         <div style={{ width: '100%' }}>
-          {!isEdit ? <Button
-            label="Редактировать"
-            onClick={() => {
-setIsEdit(true)
-}}
-            style={buttonStyle}
-          /> : <Button 
-label="Сохранить"
-onClick={() => setIsEdit(false)}
-severity="success"
-outlined
-style={{position: "static", zIndex: 0, width: "100%"}}
-/>}
+          {!isEdit ? (
+            <Button
+              label='Редактировать'
+              onClick={() => {
+                setIsEdit(true)
+              }}
+              style={buttonStyle}
+            />
+          ) : (
+            <Button
+              label='Сохранить'
+              onClick={() => setIsEdit(false)}
+              severity='success'
+              outlined
+              style={{ position: 'static', zIndex: 0, width: '100%' }}
+            />
+          )}
         </div>
         <div style={{ width: '100%' }} className={'mt-3'}>
           <Button
             onClick={() => setVisible(true)}
-            label="Удалить аккаунт"
+            label='Удалить аккаунт'
             style={{ position: 'static', zIndex: 0, width: '100%' }}
-            severity="danger"
+            severity='danger'
             outlined
           />
         </div>
       </div>
       <ConfirmDialog
         footer={footerContent}
-        group="declarative"
+        group='declarative'
         style={{ width: '90vw' }}
-        header="Удаление аккаунта"
-        message="Вы действительно хотите удалить аккаунт battle.cash?"
+        header='Удаление аккаунта'
+        message='Вы действительно хотите удалить аккаунт battle.cash?'
         visible={visible}
         onHide={() => setVisible(false)}
       ></ConfirmDialog>
     </>
-  );
-};
+  )
+}

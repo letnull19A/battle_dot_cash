@@ -1,12 +1,8 @@
-import { RouteObject } from 'react-router-dom';
-import {
-  Account,
-  MainPage,
-  NotFoundErrorPage,
-} from '@pages';
-import { Layout } from '@layouts';
+import { RouteObject } from 'react-router-dom'
+import { Account, MainPage, NotFoundErrorPage } from '@pages'
+import { Layout } from '@layouts'
 
-const { Default, Full } = Layout;
+const { Default, Full } = Layout
 
 export const publicRouter: RouteObject[] = [
   {
@@ -33,4 +29,4 @@ export const publicRouter: RouteObject[] = [
       </Full>
     ),
   },
-];
+]

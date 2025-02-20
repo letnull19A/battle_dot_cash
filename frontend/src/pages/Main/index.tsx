@@ -1,5 +1,5 @@
-import { Balance } from './Balance';
-import { PopularGames } from './PopularGames';
+import { Balance } from './Balance'
+import { PopularGames } from './PopularGames'
 
 export const MainPage = () => {
   return (
@@ -7,5 +7,5 @@ export const MainPage = () => {
       <Balance />
       <PopularGames />
     </div>
-  );
-};
+  )
+}
