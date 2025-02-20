@@ -1,3 +1,3 @@
-export { MainPage } from './Main';
-export { NotFoundErrorPage } from './Error';
-export { Account } from './Account';
+export { MainPage } from './Main'
+export { NotFoundErrorPage } from './Error'
+export { Account } from './Account'

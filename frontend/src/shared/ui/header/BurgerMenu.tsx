@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Container } from '@ui';
-import styles from './style.module.scss';
-import {MenuContext} from "@contexts"
+import { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Container } from '@ui'
+import styles from './style.module.scss'
+import { MenuContext } from '@contexts'
 
 export const BurgerMenu = () => {
   const menuContext = useContext(MenuContext)
@@ -13,26 +13,26 @@ export const BurgerMenu = () => {
     { text: 'Пополнить баланс', path: '/balance' },
     { text: 'Игры', path: '/games' },
     { text: 'Рефералы', path: '/refs' },
-  ];
+  ]
 
-  const [isDisabled, setIsDisabled] = useState<boolean>(true);
+  const [isDisabled, setIsDisabled] = useState<boolean>(true)
 
   useEffect(() => {
-    var timeout = null;
-    console.log(menuContext.isOpen);
+    var timeout = null
+    console.log(menuContext.isOpen)
     if (!menuContext.isOpen && isDisabled) {
       timeout = setTimeout(() => {
-        setIsDisabled(true);
-      }, 2000);
+        setIsDisabled(true)
+      }, 2000)
     } else {
-      if (timeout !== null) clearTimeout(timeout);
-      setIsDisabled(false);
+      if (timeout !== null) clearTimeout(timeout)
+      setIsDisabled(false)
     }
-  }, [menuContext.isOpen, isDisabled]);
+  }, [menuContext.isOpen, isDisabled])
 
   useEffect(() => {
-    console.log(isDisabled);
-  }, [isDisabled]);
+    console.log(isDisabled)
+  }, [isDisabled])
 
   return (
     <div
@@ -50,26 +50,30 @@ export const BurgerMenu = () => {
         </ul>
       </Container>
     </div>
-  );
-};
+  )
+}
 
 type TBurgerMenuItemProps = {
-  text: string;
-  path: string;
-};
+  text: string
+  path: string
+}
 
 const BurgerMenuItem = (props: TBurgerMenuItemProps) => {
-  const { text, path } = props;
-  const navigate = useNavigate();
+  const { text, path } = props
+  const navigate = useNavigate()
 
   const menuContext = useContext(MenuContext)
 
   return (
     <li className={styles.burgerMenuItem}>
-      <span onClick={() => {
-navigate(path)
-menuContext.setIsOpen(false)
-}}>{text}</span>
+      <span
+        onClick={() => {
+          navigate(path)
+          menuContext.setIsOpen(false)
+        }}
+      >
+        {text}
+      </span>
     </li>
-  );
-};
+  )
+}

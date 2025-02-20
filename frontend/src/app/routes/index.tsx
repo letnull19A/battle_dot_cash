@@ -1,8 +1,8 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { publicRouter } from './public';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { publicRouter } from './public'
 
 export const RouterApp = () => {
-  const router = createBrowserRouter([...publicRouter]);
+  const router = createBrowserRouter([...publicRouter])
 
-  return <RouterProvider router={router}></RouterProvider>;
-};
+  return <RouterProvider router={router}></RouterProvider>
+}

@@ -1,21 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export type TAppState = {
- isAuth: boolean
- login: () => null
- logout: () => null
+  isAuth: boolean
+  login: () => null
+  logout: () => null
 }
 
 const appSlice = createSlice({
   name: 'app',
   initialState: [],
   reducers: {
-    login(_state, _action) {
-      
-    },
-    logout(_state, _action) {
-      
-    },
+    login(_state, _action) {},
+    logout(_state, _action) {},
   },
 })
 

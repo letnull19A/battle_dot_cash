@@ -1,3 +1,3 @@
-import appReducer from "./app"
+import appReducer from './app'
 
-export {appReducer}
+export { appReducer }

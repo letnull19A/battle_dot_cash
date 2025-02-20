@@ -1,1 +1,1 @@
-export {MenuContext} from "./menuContext"
+export { MenuContext } from './menuContext'
