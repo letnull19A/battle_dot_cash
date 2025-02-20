@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container } from '@ui';
 import styles from './style.module.scss';
-import {MenuContext} from "@contexts/menuContext"
+import {MenuContext} from "@contexts"
 
 export const BurgerMenu = () => {
   const menuContext = useContext(MenuContext)
@@ -18,13 +18,14 @@ export const BurgerMenu = () => {
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
   useEffect(() => {
+    var timeout = null;
     console.log(menuContext.isOpen);
     if (!menuContext.isOpen && isDisabled) {
-      var timeout = setTimeout(() => {
+      timeout = setTimeout(() => {
         setIsDisabled(true);
       }, 2000);
     } else {
-      if (timeout !== undefined) clearTimeout(timeout);
+      if (timeout !== null) clearTimeout(timeout);
       setIsDisabled(false);
     }
   }, [menuContext.isOpen, isDisabled]);
@@ -54,18 +55,17 @@ export const BurgerMenu = () => {
 
 type TBurgerMenuItemProps = {
   text: string;
-  path: steing;
-  style?: string;
+  path: string;
 };
 
 const BurgerMenuItem = (props: TBurgerMenuItemProps) => {
-  const { text, path, style } = props;
+  const { text, path } = props;
   const navigate = useNavigate();
 
   const menuContext = useContext(MenuContext)
 
   return (
-    <li className={styles.burgerMenuItem} style={style}>
+    <li className={styles.burgerMenuItem}>
       <span onClick={() => {
 navigate(path)
 menuContext.setIsOpen(false)

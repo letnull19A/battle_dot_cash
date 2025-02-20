@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Header, Container } from '@ui';
 import styles from './style.module.scss';
 
