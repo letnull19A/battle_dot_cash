@@ -4,7 +4,7 @@ services:
   gateway:
     build: ./gateway
     ports:
-      - '9080:9080'
+      - '9088:9088'
     restart: always
     volumes:
       - './gateway/nginx/nginx.conf:/etc/nginx/nginx.conf:ro'
