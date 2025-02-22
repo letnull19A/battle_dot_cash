@@ -13,7 +13,7 @@ export const BurgerMenu = () => {
     { text: 'Пополнить баланс', path: '/balance' },
     { text: 'Игры', path: '/games' },
     { text: 'Рефералы', path: '/refs' },
-    { text: 'Войти', path: '/login' }
+    { text: 'Войти', path: '/login' },
   ]
 
   const [isDisabled, setIsDisabled] = useState<boolean>(true)

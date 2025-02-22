@@ -1,17 +1,49 @@
+@mixin set_colors($c) {
+  background-color: $c;
+  border-color: $c;
+}
+
 .input {
- padding: 10px;
- width: 100%;
- background-color: var(--bluegray-700);
- border-color: var(--bluegray-700);
+  padding: 10px;
+  width: 100%;
+  @include set_colors(var(--bluegray-700));
+  color: var(--bluegray-300);
 
- &Container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 30px;
- }
+  &:disabled {
+    @include set_colors(var(--bluegray-800));
+  }
 
- &Label {
-  margin: 0;
- }
+  &:active,
+  &:focus {
+    color: var(--bluegray-100);
+    outline: 2px solid var(--bluegray-400) !important;
+    box-shadow: none;
+  }
+
+  &Container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  &Label {
+    margin: 0;
+    color: var(--bluegray-100);
+  }
+}
+
+.error {
+  .input {
+    border-color: var(--red-500);
+
+    &Label {
+      color: var(--red-500);
+    }
+  }
+}
+
+.errorMessage {
+  font-size: 0.8em;
+  color: var(--red-500);
 }
