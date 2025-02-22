@@ -5,8 +5,10 @@ import { Button } from 'primereact/button'
 import styles from './style.module.scss'
 
 export const Account = () => {
-  const [visible, setVisible] = useState<boolean>(false)
-  const [isEdit, setIsEdit] = useState<boolean>(false)
+  const [visible, setVisible] =
+    useState<boolean>(false)
+  const [isEdit, setIsEdit] =
+    useState<boolean>(false)
 
   const footerContent = (
     <div>
@@ -39,10 +41,21 @@ export const Account = () => {
 
   return (
     <>
-      <div className={['pt-4', styles.account].join(' ')}>
+      <div
+        className={['pt-4', styles.account].join(
+          ' ',
+        )}
+      >
         <div className={'grid gap-1'}>
-          <div style={{ width: 110, height: 110 }}>
-            <Avatar style={{ width: '100%', height: '100%' }} />
+          <div
+            style={{ width: 110, height: 110 }}
+          >
+            <Avatar
+              style={{
+                width: '100%',
+                height: '100%',
+              }}
+            />
           </div>
           <div className={'col-7'}>
             <div className={'grid'}>
@@ -76,15 +89,26 @@ export const Account = () => {
               onClick={() => setIsEdit(false)}
               severity='success'
               outlined
-              style={{ position: 'static', zIndex: 0, width: '100%' }}
+              style={{
+                position: 'static',
+                zIndex: 0,
+                width: '100%',
+              }}
             />
           )}
         </div>
-        <div style={{ width: '100%' }} className={'mt-3'}>
+        <div
+          style={{ width: '100%' }}
+          className={'mt-3'}
+        >
           <Button
             onClick={() => setVisible(true)}
             label='Удалить аккаунт'
-            style={{ position: 'static', zIndex: 0, width: '100%' }}
+            style={{
+              position: 'static',
+              zIndex: 0,
+              width: '100%',
+            }}
             severity='danger'
             outlined
           />

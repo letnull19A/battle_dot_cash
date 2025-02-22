@@ -10,7 +10,9 @@ export const Full = (props: TFullProps) => {
 
   return (
     <Container>
-      <div className={styles.full}>{children}</div>
+      <div className={styles.full}>
+        {children}
+      </div>
     </Container>
   )
 }
