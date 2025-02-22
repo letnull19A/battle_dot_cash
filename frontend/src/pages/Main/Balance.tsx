@@ -1,6 +1,7 @@
 import { Card } from 'primereact/card'
 import styles from './style.module.scss'
 
+//TODO: move to features
 export const Balance = () => {
   return (
     <Card title='Ваш баланс' className={[styles.cardBalance, 'p-3'].join(' ')}>
