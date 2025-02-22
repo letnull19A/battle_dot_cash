@@ -1,4 +1,8 @@
-import { useContext, useEffect, useState } from 'react'
+import {
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Container } from '@ui'
 import styles from './style.module.scss'
@@ -7,16 +11,23 @@ import { MenuContext } from '@contexts'
 export const BurgerMenu = () => {
   const menuContext = useContext(MenuContext)
 
-  const data: Array<{ text: string; path: string }> = [
+  const data: Array<{
+    text: string
+    path: string
+  }> = [
     { text: 'Главная', path: '/' },
     { text: 'Аккаунт', path: '/account' },
-    { text: 'Пополнить баланс', path: '/balance' },
+    {
+      text: 'Пополнить баланс',
+      path: '/balance',
+    },
     { text: 'Игры', path: '/games' },
     { text: 'Рефералы', path: '/refs' },
     { text: 'Войти', path: '/login' },
   ]
 
-  const [isDisabled, setIsDisabled] = useState<boolean>(true)
+  const [isDisabled, setIsDisabled] =
+    useState<boolean>(true)
 
   useEffect(() => {
     var timeout = null
@@ -39,14 +50,21 @@ export const BurgerMenu = () => {
     <div
       className={[
         styles.burgerMenu,
-        isDisabled ? styles.disabled : styles.enabled,
-        menuContext.isOpen ? styles.show : styles.hidden,
+        isDisabled
+          ? styles.disabled
+          : styles.enabled,
+        menuContext.isOpen
+          ? styles.show
+          : styles.hidden,
       ].join(' ')}
     >
       <Container>
         <ul>
           {data.map((item, index) => (
-            <BurgerMenuItem {...item} key={index} />
+            <BurgerMenuItem
+              {...item}
+              key={index}
+            />
           ))}
         </ul>
       </Container>
@@ -59,7 +77,9 @@ type TBurgerMenuItemProps = {
   path: string
 }
 
-const BurgerMenuItem = (props: TBurgerMenuItemProps) => {
+const BurgerMenuItem = (
+  props: TBurgerMenuItemProps,
+) => {
   const { text, path } = props
   const navigate = useNavigate()
 

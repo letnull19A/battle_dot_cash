@@ -1,5 +1,9 @@
 import { RouteObject } from 'react-router-dom'
-import { Account, MainPage, NotFoundErrorPage } from '@pages'
+import {
+  Account,
+  MainPage,
+  NotFoundErrorPage,
+} from '@pages'
 import { Layout } from '@layouts'
 
 const { Default, Full } = Layout

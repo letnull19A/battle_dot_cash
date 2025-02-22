@@ -9,5 +9,10 @@ type TButtonProps = {
 export const Button = (props: TButtonProps) => {
   const { label, className } = props
 
-  return <B label={label} className={styles.button + ' ' + className} />
+  return (
+    <B
+      label={label}
+      className={styles.button + ' ' + className}
+    />
+  )
 }
