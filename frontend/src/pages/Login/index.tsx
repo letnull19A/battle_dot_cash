@@ -3,7 +3,7 @@ import { useForm, Controller } from 'react-hook-form'
 import styles from './style.module.scss'
 
 export const LoginPage = () => {
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, formState: {errors} } = useForm({
     defaultValues: {
       login: '',
       password: '',
@@ -21,15 +21,25 @@ export const LoginPage = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name='login'
+	  rules={{required: "Логин не введён"}}
           control={control}
-          render={({ field }) => (
-            <Input {...field} errorMessage='some error' label='Логин' />
+          render={({ field, fieldState }) => (
+            <Input {...field} 
+	    errorMessage={errors.login?.message}
+	    isError={fieldState.error}
+	    label='Логин' />
           )}
         />
         <Controller
           name='password'
+	  rules={{required: "Пароль не введён"}}
           control={control}
-          render={({ field }) => <Input {...field} isPassword label='Пароль' />}
+          render={({ field, fieldState }) => <Input 
+		  {...field} 
+		  isPassword 
+		  isError={fieldState.error}
+		  errorMessage={errors.password?.message}
+		  label='Пароль' />}
         />
         <Button label='Войти' />
         <span className={styles.accountManage}>Создать аккаунт</span>
