@@ -10,4 +10,6 @@ if (import.meta.env.MODE === 'development') {
   eruda.init()
 }
 
-createRoot(document.getElementById('root')!).render(<App />)
+createRoot(
+  document.getElementById('root')!,
+).render(<App />)

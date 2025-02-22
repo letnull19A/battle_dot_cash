@@ -9,7 +9,10 @@ export const NotFoundErrorPage = () => {
     <div className={styles.errorMessage}>
       <h1>Ошибка</h1>
       <h2>Страница не найдена :(</h2>
-      <Button label='На главную' onClick={() => navigate('/')} />
+      <Button
+        label='На главную'
+        onClick={() => navigate('/')}
+      />
     </div>
   )
 }

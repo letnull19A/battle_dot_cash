@@ -15,7 +15,9 @@ export const Panel = (props: TPanel) => {
         'p-3 ' +
         styles.panel +
         ' ' +
-        (Array.isArray(className) ? className?.join(' ') : className)
+        (Array.isArray(className)
+          ? className?.join(' ')
+          : className)
       }
     >
       {children}

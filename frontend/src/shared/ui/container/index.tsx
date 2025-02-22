@@ -5,8 +5,14 @@ type TContainerProps = {
   children?: JSX.Element
 }
 
-export const Container = (props: TContainerProps) => {
+export const Container = (
+  props: TContainerProps,
+) => {
   const { children } = props
 
-  return <div className={style.container}>{children}</div>
+  return (
+    <div className={style.container}>
+      {children}
+    </div>
+  )
 }

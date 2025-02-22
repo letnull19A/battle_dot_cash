@@ -6,7 +6,8 @@ import { MenuContext } from '@contexts'
 import styles from './style.module.scss'
 
 export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+  const [isMenuOpen, setIsMenuOpen] =
+    useState<boolean>(false)
 
   return (
     <MenuContext.Provider
@@ -19,11 +20,21 @@ export const Header = () => {
         <Container>
           <div className={styles.headerInner}>
             <Button
-              className={[styles.burgerButton].join(' ')}
-              icon={isMenuOpen ? 'pi pi-times' : 'pi pi-bars'}
-              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className={[
+                styles.burgerButton,
+              ].join(' ')}
+              icon={
+                isMenuOpen
+                  ? 'pi pi-times'
+                  : 'pi pi-bars'
+              }
+              onClick={() =>
+                setIsMenuOpen((prev) => !prev)
+              }
             />
-            <span className={styles.headerLogo}>battle.cash</span>
+            <span className={styles.headerLogo}>
+              battle.cash
+            </span>
           </div>
         </Container>
       </header>
