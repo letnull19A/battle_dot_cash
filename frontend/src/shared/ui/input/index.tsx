@@ -1,17 +1,17 @@
-import { forwardRef } from 'react'
+import React, { forwardRef, ForwardedRef } from 'react'
 import { InputText } from 'primereact/inputtext'
 import styles from './style.module.scss'
 
 type TInputProps = {
-  label: string
-  isError: boolean
-  isPassword: boolean
-  errorMessage: string
-  value: string
-  onChange: (e) => void
+label: string
+isError: boolean | undefined
+isPassword?: boolean
+errorMessage: string | undefined
+value: string
+onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export const Input = forwardRef<Partial<TInputProps>>((props, ref) => {
+const I = (props: TInputProps, ref: ForwardedRef<HTMLInputElement>) => {
   const { label, isError, isPassword, errorMessage, onChange, value } = props
 
   return (
@@ -31,4 +31,6 @@ export const Input = forwardRef<Partial<TInputProps>>((props, ref) => {
       {isError && <span className={styles.errorMessage}>{errorMessage}</span>}
     </div>
   )
-})
+}
+
+export const Input = forwardRef(I)
