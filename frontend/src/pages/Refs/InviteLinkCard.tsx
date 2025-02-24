@@ -10,6 +10,8 @@ export const InviteLinkCard = () => {
     useState<boolean>(false)
 
   const copyToClipboard = async () => {
+    if (inviteLink === undefined) return
+
     await navigator.clipboard.writeText(
       inviteLink,
     )
@@ -27,7 +29,7 @@ export const InviteLinkCard = () => {
       )}
     >
       <div className={styles.copyLink}>
-        <p>{inviteLink}</p>
+        <p>{inviteLink ?? ''}</p>
         <i
           onClick={() => {
             copyToClipboard()

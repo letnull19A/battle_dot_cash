@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
-import styles from './style.module.scss'
 import './override.css'
 
 export type TReferal = {
@@ -11,9 +10,7 @@ export type TReferal = {
 }
 
 export const RefsList = () => {
-  const [refList, setRefList] = useState<
-    Array<TReferal>
-  >([])
+  const [refList] = useState<Array<TReferal>>([])
 
   return (
     <>
