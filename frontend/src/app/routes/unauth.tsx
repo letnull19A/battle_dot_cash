@@ -2,10 +2,11 @@ import { RouteObject } from 'react-router-dom'
 import {
   LoginPage,
   RegistrationPage,
+  RefsPage,
 } from '@pages'
 import { Layout } from '@layouts'
 
-const { Full } = Layout
+const { Full, Default } = Layout
 
 export const unAuthRouter: RouteObject[] = [
   {
@@ -22,6 +23,14 @@ export const unAuthRouter: RouteObject[] = [
       <Full>
         <RegistrationPage />
       </Full>
+    ),
+  },
+  {
+    path: '/refs',
+    element: (
+      <Default>
+        <RefsPage />
+      </Default>
     ),
   },
 ]

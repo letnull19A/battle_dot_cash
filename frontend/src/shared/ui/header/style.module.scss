@@ -28,7 +28,7 @@ header.header {
 }
 
 .burgerButton {
-  heigth: 50px !important;
+  height: 50px !important;
   padding: 0;
   background-color: transparent !important;
   margin: 0;
@@ -45,6 +45,7 @@ header.header {
 
 .burgerMenu {
   position: fixed;
+  z-index: 999;
   width: 100%;
   height: calc(100svh - $header-height);
   background-color: var(--bluegray-700);
