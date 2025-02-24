@@ -1,0 +1,40 @@
+.p-datatable,
+.p-datatable-wrapper {
+  border-radius: 5px;
+}
+
+.p-datatable,
+.p-datatable-wrapper,
+tr,
+th,
+table,
+.p-paginator-bottom,
+.p-paginator {
+  position: static;
+  z-index: 0;
+  background-color: var(--gray-700);
+  color: var(--gray-200);
+  border: none;
+}
+
+.p-paginator button,
+.p-paginator-bottom button,
+.p-paginator svg,
+.p-paginator-bottom svg {
+  position: static !important;
+  z-index: 0 !important;
+}
+
+.p-datatable-thead th,
+.p-column-header-content {
+  padding: 10px !important;
+}
+
+.p-paginator-bottom,
+.p-paginator {
+  background-color: var(--gray-700) !important;
+  border: none;
+  outline: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
