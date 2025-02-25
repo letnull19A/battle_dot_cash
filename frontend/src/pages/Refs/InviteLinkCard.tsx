@@ -1,5 +1,10 @@
-import { useState, useEffect } from 'react'
+import {
+  useState,
+  useEffect,
+  useRef,
+} from 'react'
 import { Card } from 'primereact/card'
+import QRCode from 'qrcode'
 import styles from './style.module.scss'
 
 //TODO: move to features
@@ -8,6 +13,9 @@ export const InviteLinkCard = () => {
     useState<string>()
   const [isCopy, setIsCopy] =
     useState<boolean>(false)
+
+  const canvasRef =
+    useRef<HTMLCanvasElement>(null)
 
   const copyToClipboard = async () => {
     if (inviteLink === undefined) return
@@ -21,6 +29,26 @@ export const InviteLinkCard = () => {
     setInviteLink('https://some.com/7737277')
   }, [inviteLink])
 
+  useEffect(() => {
+    if (
+      canvasRef.current === undefined ||
+      inviteLink === undefined
+    ) {
+      console.error(
+        'canvas or link not found!',
+        'canvas: ',
+        canvasRef,
+      )
+      return
+    }
+
+    QRCode.toCanvas(
+      canvasRef.current,
+      inviteLink,
+      console.error,
+    )
+  }, [inviteLink, canvasRef])
+
   return (
     <Card
       title='Реферальная ссылка'
@@ -28,6 +56,14 @@ export const InviteLinkCard = () => {
         ' ',
       )}
     >
+      <canvas
+        style={{
+          width: 256,
+          marginTop: 20,
+          borderRadius: 5,
+        }}
+        ref={canvasRef}
+      />
       <div className={styles.copyLink}>
         <p>{inviteLink ?? ''}</p>
         <i
